@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Ctf from "@/components/ctf/Ctf.astro";
+
+export const title = "OverTheCluster";
+
+const { isAuthenticated, redirectToSignIn } = Astro.locals.auth();
+if (!isAuthenticated) return redirectToSignIn();
+---
+<BaseLayout title={title}>
+  <Ctf />
+</BaseLayout>

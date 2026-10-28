@@ -1,0 +1,16 @@
+---
+import Slash from "@/components/ui/slash.astro"
+import Grid from "@/components/ui/Grid.astro"
+import Terminal from "@/components/ctf/Terminal.astro"
+import Navbar from "@/components/navigation/Navbar.astro"
+---
+
+<div class="flex min-h-screen flex-col">
+  <Navbar />
+  <div class="relative flex-1 overflow-hidden">
+    <Grid>
+      <Terminal />
+    </Grid>
+  </div>
+  <Slash />
+</div>

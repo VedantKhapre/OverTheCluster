@@ -1,0 +1,61 @@
+---
+import { Font } from "astro:assets";
+import "../styles/global.css";
+
+interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+    canonicalUrl?: string;
+}
+
+const {
+    title = "OverTheCluster",
+    description = "",
+    image = "/og-image.webp",
+    canonicalUrl = Astro.url.href,
+} = Astro.props;
+---
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>{title}</title>
+        
+        <meta name="description" content={description} />
+
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={new URL(image, Astro.url)} />
+        
+        <Font cssVariable="--font-inter" />
+
+        <script is:inline>
+          try {
+            const stored = localStorage.getItem("theme");
+            const dark = stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.classList.toggle("dark", dark);
+            document.documentElement.style.colorScheme = dark ? "dark" : "light";
+          } catch {}
+        </script>
+        
+    </head>
+
+    <body class="dark">
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>

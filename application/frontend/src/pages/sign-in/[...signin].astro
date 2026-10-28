@@ -1,0 +1,14 @@
+---
+import { SignIn } from "@clerk/astro/components";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Auth from "@/components/auth/Auth.astro";
+
+export const title = "Sign in";
+---
+<BaseLayout title={title}>
+  <Auth>
+    <div class="flex h-full items-center justify-center">
+      <SignIn path="/sign-in" />
+    </div>
+  </Auth>
+</BaseLayout>

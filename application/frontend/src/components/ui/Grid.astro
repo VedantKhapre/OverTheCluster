@@ -1,0 +1,27 @@
+---
+import CursorGrid from '@/components/ui/CursorGrid';
+---
+
+<div class="absolute inset-0 h-full w-full">
+  <CursorGrid
+    client:load
+    cellSize={60}
+    color="#9234d3"
+    gridColor="#9234d3"
+    highlight="area"
+    gridStyle="dashed"
+    radius={140}
+    holdTime={800}
+    fadeDuration={1600}
+    fillOpacity={0.06}
+    gridOpacity={0.14}
+    spotlight={1}
+    edgeFade={0.05}
+    ambient={0.5}
+    clickPulse={true}
+    style={{}}
+    dpr={1}
+  >
+    <slot />
+  </CursorGrid>
+</div>

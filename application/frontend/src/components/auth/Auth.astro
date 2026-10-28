@@ -1,0 +1,14 @@
+---
+import Slash from "@/components/ui/slash.astro"
+import Grid from "@/components/ui/Grid.astro"
+---
+
+<div class="flex min-h-screen flex-col">
+  <Slash />
+  <div class="relative flex-1 overflow-hidden">
+    <Grid>
+      <slot />
+    </Grid>
+  </div>
+  <Slash />
+</div>
