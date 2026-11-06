@@ -1,0 +1,16 @@
+=====================================================
+ LEVEL 7 — Secret Message
+=====================================================
+
+/home/level7/cipher.txt is a message meant for
+rot only. To everyone else it is nonsense.
+
+Recover the flag.
+
+Useful commands:
+    cat FILE      print a file
+    tr            translate or swap characters
+    sed           stream editor
+
+Next level:  su - level8
+=====================================================

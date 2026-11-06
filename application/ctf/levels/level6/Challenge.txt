@@ -1,0 +1,18 @@
+=====================================================
+ LEVEL 6 — Locked Out
+=====================================================
+
+/home/level6/locked.txt belongs to you, yet it
+refuses to open for you.
+
+Recover the flag.
+
+Useful commands:
+    ls -l FILE    show owner and permissions
+    id            show your user and groups
+    stat FILE     detailed file info
+    chmod         change permissions
+    cat FILE      print a file
+
+Next level:  su - level7
+=====================================================

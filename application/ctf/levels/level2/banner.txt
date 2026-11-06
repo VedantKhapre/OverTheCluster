@@ -1,0 +1,8 @@
+╔══════════════════════════════════════════════════════════════╗
+║  Welcome to Level 2,                                         ║
+║                                                              ║
+║  Out of Sight                                                ║
+║                                                              ║
+║  Something is tucked away in your home directory.            ║
+║  It does not want to be found.                               ║
+╚══════════════════════════════════════════════════════════════╝

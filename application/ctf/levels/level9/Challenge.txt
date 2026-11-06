@@ -1,0 +1,21 @@
+=====================================================
+ LEVEL 9 — Impostors
+=====================================================
+
+/home/level9/files holds fifty files. Many contain
+flags. Most are fakes.
+
+The real flag has exactly 16 lowercase hexadecimal
+characters between the braces:  flag{................}
+
+Recover it.
+
+Useful commands:
+    grep -r       search a whole directory
+    grep -E       search with regular expressions
+    grep -l       list only matching filenames
+    for f in *    loop over files in bash
+    sort | uniq   sort and deduplicate output
+
+Next level:  su - level10
+=====================================================

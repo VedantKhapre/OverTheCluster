@@ -1,0 +1,20 @@
+=====================================================
+ LEVEL 1 — First Contact
+=====================================================
+
+Welcome, cheif.
+
+A flag is waiting somewhere in your home directory.
+Bring it back.
+
+Flags look like:   flag{...}
+The entire flag is the password for the next level.
+
+Useful commands:
+    pwd           show current directory
+    ls -la        list everything, hidden included
+    cat FILE      print a file
+    whoami        show who you are
+
+Next level:  su - level2
+=====================================================

@@ -1,0 +1,8 @@
+╔══════════════════════════════════════════════════════════════╗
+║  Welcome to the OverTheCluster!                              ║
+║                                                              ║
+║  Level 1 — First Contact                                     ║
+║                                                              ║
+║  A flag is waiting in your home directory.                   ║
+║  Bring it back.                                              ║
+╚══════════════════════════════════════════════════════════════╝

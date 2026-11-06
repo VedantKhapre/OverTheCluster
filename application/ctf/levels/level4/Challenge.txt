@@ -1,0 +1,18 @@
+=====================================================
+ LEVEL 4 — Identity Crisis
+=====================================================
+
+/home/level4/mystery.bin is waiting for you.
+It may not be what it claims to be.
+
+Recover the flag.
+
+Useful commands:
+    file FILE     identify a file's real type
+    head FILE     peek at the start
+    xxd FILE      hex view
+    strings FILE  pull out readable text
+    cat FILE      print a file
+
+Next level:  su - level5
+=====================================================

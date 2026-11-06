@@ -1,0 +1,8 @@
+╔══════════════════════════════════════════════════════════════╗
+║  Welcome to Level 10,                                        ║
+║                                                              ║
+║  The Vault (FINAL)                                           ║
+║                                                              ║
+║  The last flag has more than one layer.                      ║
+║  No single trick will be enough.                             ║
+╚══════════════════════════════════════════════════════════════╝

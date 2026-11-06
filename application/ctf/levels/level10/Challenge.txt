@@ -1,0 +1,18 @@
+=====================================================
+ LEVEL 10 — The Vault (FINAL)
+=====================================================
+
+The last flag is protected by more than one layer.
+No single trick will be enough.
+
+Begin in /home/level10 and see it through to the end.
+
+Useful commands:
+    ls -la        list everything, hidden included
+    find DIR      walk a directory tree
+    file FILE     identify a file's type
+    base64        encode/decode base64
+    xxd           hex dump / reverse a hex dump
+
+Complete this and the CTF is yours.
+=====================================================

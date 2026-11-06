@@ -1,0 +1,8 @@
+╔══════════════════════════════════════════════════════════════╗
+║  Welcome to Level 7,                                         ║
+║                                                              ║
+║  Secret Message                                              ║
+║                                                              ║
+║  cipher.txt is meant for rot only.                           ║
+║  To everyone else it is nonsense.                            ║
+╚══════════════════════════════════════════════════════════════╝

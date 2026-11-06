@@ -1,0 +1,17 @@
+=====================================================
+ LEVEL 5 — Garbled
+=====================================================
+
+/home/level5/encoded.txt contains the flag,
+but not in a form you can use yet.
+
+Recover the flag.
+
+Useful commands:
+    cat FILE      print a file
+    file FILE     identify a file's type
+    base64        encode/decode base64
+    xxd           hex dump / reverse a hex dump
+
+Next level:  su - level6
+=====================================================

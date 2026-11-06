@@ -1,0 +1,17 @@
+=====================================================
+ LEVEL 8 — Wreckage
+=====================================================
+
+/home/level8/dump.bin is what remains of a
+corrupted memory dump. The flag survived inside it.
+
+Recover the flag.
+
+Useful commands:
+    file FILE     identify a file's type
+    xxd FILE      hex view
+    strings FILE  pull out readable text
+    grep -a       search inside binary data
+
+Next level:  su - level9
+=====================================================

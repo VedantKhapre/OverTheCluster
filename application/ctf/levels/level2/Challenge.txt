@@ -1,0 +1,17 @@
+=====================================================
+ LEVEL 2 — Out of Sight
+=====================================================
+
+Something has been tucked away inside your home
+directory. It does not want to be found.
+
+Recover the flag.
+
+Useful commands:
+    ls -la        list everything, hidden included
+    find DIR      walk a directory tree
+    find -name    search by filename pattern
+    cat FILE      print a file
+
+Next level:  su - level3
+=====================================================

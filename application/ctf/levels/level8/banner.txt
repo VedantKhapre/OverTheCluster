@@ -1,0 +1,8 @@
+╔══════════════════════════════════════════════════════════════╗
+║  Welcome to Level 8,                                         ║
+║                                                              ║
+║  Wreckage                                                    ║
+║                                                              ║
+║  dump.bin is a corrupted memory dump.                        ║
+║  The flag survived inside it.                                ║
+╚══════════════════════════════════════════════════════════════╝

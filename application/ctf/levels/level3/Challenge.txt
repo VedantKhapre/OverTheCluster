@@ -1,0 +1,18 @@
+=====================================================
+ LEVEL 3 — Noise
+=====================================================
+
+/home/level3/data holds a hundred logs of routine
+traffic. One entry among them is not routine.
+
+Recover the flag.
+
+Useful commands:
+    ls | wc -l    count files
+    head / tail   peek at a file's ends
+    less FILE     page through a file
+    grep          search text for a pattern
+    grep -r       search a whole directory
+
+Next level:  su - level4
+=====================================================
