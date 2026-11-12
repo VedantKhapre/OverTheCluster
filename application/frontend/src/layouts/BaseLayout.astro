@@ -1,6 +1,9 @@
 ---
 import { Font } from "astro:assets";
 import "../styles/global.css";
+import Jellyfish from "@/components/ui/Jellyfish.astro";
+import { ClientRouter } from "astro:transitions";
+
 
 interface Props {
     title: string;
@@ -40,21 +43,16 @@ const {
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={new URL(image, Astro.url)} />
         
-        <Font cssVariable="--font-inter" />
-
-        <script is:inline>
-          try {
-            const stored = localStorage.getItem("theme");
-            const dark = stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-            document.documentElement.classList.toggle("dark", dark);
-            document.documentElement.style.colorScheme = dark ? "dark" : "light";
-          } catch {}
-        </script>
-        
+        <Font cssVariable="--font-instrument-sans" preload />
+        <Font cssVariable="--font-instrument-serif" preload />
+        <ClientRouter />
     </head>
 
-    <body class="dark">
-        <main>
+    <body>
+        <div class="fixed inset-0 z-0 overflow-hidden text-white pointer-events-none">
+            <Jellyfish count={5} class="h-full w-full" />
+        </div>
+        <main class="relative">
             <slot />
         </main>
     </body>

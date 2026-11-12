@@ -1,0 +1,123 @@
+---
+interface Props {
+  href?: string;
+  label?: string;
+}
+
+const { href = "/ctf", label = "Get started" } = Astro.props;
+---
+
+<section class="mx-auto flex w-full max-w-3xl flex-col items-center px-5 pb-16">
+  <div class="relative w-full rounded-t-2xl border-2 border-b-0 border-[#222222] bg-[#111111] p-4">
+    <span class="absolute left-1/2 top-1.5 h-1 w-1 -translate-x-1/2 rounded-full border-[#222222]"></span>
+
+    <div class="relative mt-2 flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg border border-[#1d1d1d] bg-[#0b0b0b]">
+      <canvas
+        data-matrix-rain
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0 h-full w-full opacity-50"
+      ></canvas>
+
+      <a
+        href={href}
+        class="relative z-10 inline-flex items-center rounded-full bg-white/90 px-6 py-2.5 text-sm font-medium text-black transition hover:bg-blue-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+      >
+        {label}
+      </a>
+    </div>
+  </div>
+
+  <div class="relative h-3 w-[108%] max-w-[calc(100%+3rem)] rounded-b-2xl border-2 border-[#222222] bg-[#191919]">
+    <span class="absolute left-1/2 top-0 h-1.5 w-20 -translate-x-1/2 rounded-b-md border border-t-0 border-[#222222]"></span>
+    <span class="absolute left-[8%] top-full h-2 w-14 rounded-b-lg bg-[#eeeeee]"></span>
+    <span class="absolute right-[8%] top-full h-2 w-14 rounded-b-lg bg-[#eeeeee]"></span>
+  </div>
+</section>
+
+<script>
+  const CHARS = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ$+-*/=%#&_<>[]{}()|;:?!";
+  const FONT_SIZE = 14;
+  const BG = "#0b0b0b";
+  const FG = "#3b82f6";
+  const HEAD = "#bfdbfe";
+
+  let cleanups: Array<() => void> = [];
+
+  function destroy() {
+    cleanups.forEach((fn) => fn());
+    cleanups = [];
+  }
+
+  function setup(canvas: HTMLCanvasElement) {
+    const ctx = canvas.getContext("2d");
+    const parent = canvas.parentElement;
+    if (!ctx || !parent) return;
+
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let w = 0;
+    let h = 0;
+    let drops: number[] = [];
+    let last = 0;
+    let raf = 0;
+
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      w = parent.clientWidth;
+      h = parent.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.fillStyle = BG;
+      ctx.fillRect(0, 0, w, h);
+
+      // one drop per column, staggered above the top
+      const cols = Math.ceil(w / FONT_SIZE);
+      drops = Array.from({ length: cols }, () => -Math.random() * (h / FONT_SIZE));
+    };
+
+    const draw = (t: number) => {
+      raf = requestAnimationFrame(draw);
+      if (t - last < 50) return; // ~20fps feels more "terminal"
+      last = t;
+
+      // translucent fill leaves the fading trails
+      ctx.fillStyle = "rgba(11, 11, 11, 0.12)";
+      ctx.fillRect(0, 0, w, h);
+
+      ctx.font = `${FONT_SIZE}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const y = drops[i] * FONT_SIZE;
+        if (y > 0) {
+          const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+          ctx.fillStyle = Math.random() > 0.92 ? HEAD : FG;
+          ctx.fillText(ch, i * FONT_SIZE, y);
+        }
+        if (y > h && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    };
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(parent);
+    resize();
+    if (!reduceMotion) raf = requestAnimationFrame(draw);
+
+    cleanups.push(() => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+    });
+  }
+
+  function init() {
+    destroy();
+    document
+      .querySelectorAll<HTMLCanvasElement>("canvas[data-matrix-rain]")
+      .forEach(setup);
+  }
+
+  // fires on first load AND after every view-transition navigation
+  document.addEventListener("astro:page-load", init);
+  // stop the old animation before the DOM is swapped out
+  document.addEventListener("astro:before-swap", destroy);
+</script>

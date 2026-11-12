@@ -1,20 +1,25 @@
 ---
 const url = import.meta.env.PUBLIC_TERMINAL_URL ?? "http://localhost:8080";
-const dots = ["#ff5f56", "#ffbd2e", "#27c93f"];
 ---
 
-<div class="flex h-full items-center justify-center px-2 pb-4 pt-16 sm:px-4 sm:pb-6 sm:pt-16">
-  <div class="w-full max-w-7xl overflow-hidden rounded-xl border border-[#9234d3]/40 bg-black shadow-[0_0_40px_rgba(146,52,211,0.25)]">
-    <div class="flex items-center gap-2 border-b border-[#9234d3]/30 bg-[#0d0d0d] px-4 py-2">
-      {dots.map((c) => <span class="size-3 rounded-full" style={`background:${c}`} />)}
-      <span class="ml-2 text-xs text-purple-300/70">ctf-terminal</span>
+<section class="flex min-h-0 flex-1 flex-col px-4 pb-5 sm:px-6 sm:pb-6">
+  <div class="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col overflow-hidden rounded-2xl border border-[#222222] bg-[#111111] p-3 sm:p-4">
+    <div class="relative flex items-center px-2 pb-3">
+      <div class="flex items-center gap-2">
+        <span class="size-2.5 rounded-full bg-white/15" />
+        <span class="size-2.5 rounded-full bg-white/15" />
+        <span class="size-2.5 rounded-full bg-white/15" />
+      </div>
+      <span class="absolute left-1/2 -translate-x-1/2 font-serif text-sm italic text-white/60">
+        over the cluster
+      </span>
     </div>
     <iframe
       src={url}
       title="CTF Terminal"
-      class="block h-[75vh] w-full"
+      class="block min-h-0 w-full flex-1 rounded-lg border border-[#1d1d1d] bg-[#0b0b0b]"
       allow="clipboard-read; clipboard-write"
       sandbox="allow-scripts allow-same-origin allow-forms"
     />
   </div>
-</div>
+</section>

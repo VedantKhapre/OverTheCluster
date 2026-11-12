@@ -11,12 +11,19 @@ import node from "@astrojs/node";
 export default defineConfig({
   fonts: [
     {
-      provider: fontProviders.fontsource(),
-      name: "Inter",
-      cssVariable: "--font-inter",
-      weights: [400, 500, 600, 700],
-    },
-  ],
+       provider: fontProviders.fontsource(),
+       name: "Instrument Sans",
+       cssVariable: "--font-instrument-sans",
+       weights: [400, 500, 600, 700],
+     },
+     {
+       provider: fontProviders.fontsource(),
+       name: "Instrument Serif",
+       cssVariable: "--font-instrument-serif",
+       weights: [400],
+       styles: ["normal", "italic"],
+     },
+   ],
   
   integrations: [react(),
     clerk({

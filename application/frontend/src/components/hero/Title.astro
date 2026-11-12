@@ -1,0 +1,31 @@
+---
+
+---
+
+<header class="flex w-full justify-center px-5 pt-16 pb-16 sm:pt-12 sm:pb-12 md:pt-16 md:pb-16">
+  <h1 class="max-w-xl text-center font-sans font-medium text-2xl text-white sm:text-3xl md:text-4xl">
+    <span class="circled relative mx-4 inline-block px-4 py-2 font-serif italic">
+      Over The Cluster
+    </span>
+    Containerized CTF platform on{" "}
+    <span class="bg-gradient-to-r from-white to-blue-800 bg-clip-text font-serif italic text-transparent">
+      Kubernetes{" "}
+    </span>
+    cluster
+  </h1>
+</header>
+
+<style>
+  .circled {
+    --circle-stroke: white;
+    --circle-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60' preserveAspectRatio='none'%3E%3Cpath d='M22 32 C 18 12, 80 4, 128 6 C 176 8, 197 20, 194 34 C 191 50, 130 57, 85 55 C 38 53, 6 44, 9 26 C 12 12, 50 6, 84 5' fill='none' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  }
+
+  .circled::after {
+    content: "";
+    position: absolute;
+    inset: -0.5rem -1rem;
+    pointer-events: none;
+    background: var(--circle-svg) center / 100% 100% no-repeat;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import logo from "@assets/icon/logo.svg";
+import Github from "@assets/icon/Github.svg";
+import { Show, UserButton, SignInButton } from "@clerk/astro/components";
+---
+
+<nav class="sticky top-0 z-10 w-full shrink-0 pt-5 pb-5 sm:pt-6 sm:pb-6 md:pt-7 md:pb-7">
+    <div class="flex w-full items-center justify-between px-5 sm:px-8">
+        <a href="/" aria-label="Home" class="flex min-h-10 min-w-10 shrink-0 items-center">
+            <Image
+                src={logo}
+                alt=""
+                width={116}
+                height={92}
+                class="h-5 w-auto sm:h-6 md:h-7"
+            />
+        </a>
+        <div class="flex gap-4">
+            <a
+                href="https://github.com/vedantkhapre/overthecluster"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-9 shrink-0 items-center gap-2 rounded-full bg-white px-3.5 text-sm font-medium text-[#2e2e2e] transition hover:bg-neutral-200"
+            >
+                <Image src={Github} alt="" width={16} height={16} class="size-4 shrink-0" />
+                <span>Github</span>
+            </a>
+        
+            <Show when="signed-out">
+              <SignInButton mode="modal" asChild>Sign in</SignInButton>
+            </Show>
+            <Show when="signed-in">
+              <UserButton />
+            </Show>
+        </div>
+    </div>
+</nav>
+

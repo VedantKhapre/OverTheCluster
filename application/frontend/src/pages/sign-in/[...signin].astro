@@ -1,14 +1,15 @@
 ---
 import { SignIn } from "@clerk/astro/components";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Auth from "@/components/auth/Auth.astro";
+import Navbar from "@/components/navigation/Nav.astro";
 
 export const title = "Sign in";
 ---
 <BaseLayout title={title}>
-  <Auth>
-    <div class="flex h-full items-center justify-center">
+  <div class="flex h-dvh flex-col overflow-hidden">
+    <Navbar />
+    <div class="flex min-h-0 flex-1 items-center justify-center">
       <SignIn path="/sign-in" />
     </div>
-  </Auth>
+  </div>
 </BaseLayout>
