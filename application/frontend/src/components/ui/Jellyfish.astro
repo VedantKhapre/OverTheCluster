@@ -875,6 +875,7 @@ const { count = 4, variant = "color", class: className, ...props } = Astro.props
     private dispose?: () => void;
 
     connectedCallback() {
+      if (this.dispose) return;
       const canvas = this.querySelector("canvas");
       if (!canvas) return;
       const count = Number(this.dataset.count) || 4;
@@ -883,8 +884,11 @@ const { count = 4, variant = "color", class: className, ...props } = Astro.props
     }
 
     disconnectedCallback() {
-      this.dispose?.();
-      this.dispose = undefined;
+      queueMicrotask(() => {
+        if (this.isConnected) return;
+        this.dispose?.();
+        this.dispose = undefined;
+      });
     }
   }
 

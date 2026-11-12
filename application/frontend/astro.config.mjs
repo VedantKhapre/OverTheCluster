@@ -27,10 +27,28 @@ export default defineConfig({
   
   integrations: [react(),
     clerk({
+      afterSignOutUrl: "/",
+      signInForceRedirectUrl: "/ctf",
+      signUpForceRedirectUrl: "/ctf",
       appearance: {
         theme: dark,
         variables: {
-          colorPrimary: '#9234d3',
+          colorPrimary: "#3b82f6",
+          colorBackground: "#111111",
+          colorInput: "#0b0b0b",
+          borderRadius: "0.5rem",
+          fontFamily: "inherit",
+        },
+        elements: {
+          cardBox: { border: "1px solid #222222", boxShadow: "none" },
+          headerTitle: { fontFamily: "Instrument Serif", fontStyle: "italic", fontWeight: 400 },
+          userButtonAvatarBox: { width: "2.25rem", height: "2.25rem" },
+          formButtonPrimary: {
+            background: "rgba(255,255,255,0.9)",
+            color: "#000",
+            borderRadius: "9999px",
+            "&:hover": { background: "#3b82f6", color: "#fff" },
+          },
         },
       },
     }),

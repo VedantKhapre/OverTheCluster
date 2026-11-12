@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import logo from "@assets/icon/logo.svg";
 import Github from "@assets/icon/Github.svg";
-import { Show, UserButton, SignInButton } from "@clerk/astro/components";
+import { Show, UserButton } from "@clerk/astro/components";
 ---
 
 <nav class="sticky top-0 z-10 w-full shrink-0 pt-5 pb-5 sm:pt-6 sm:pb-6 md:pt-7 md:pb-7">
@@ -27,11 +27,10 @@ import { Show, UserButton, SignInButton } from "@clerk/astro/components";
                 <span>Github</span>
             </a>
         
-            <Show when="signed-out">
-              <SignInButton mode="modal" asChild>Sign in</SignInButton>
-            </Show>
             <Show when="signed-in">
-              <UserButton />
+                <div class="size-9 rounded-full bg-white/10">
+                    <UserButton />
+                </div>
             </Show>
         </div>
     </div>

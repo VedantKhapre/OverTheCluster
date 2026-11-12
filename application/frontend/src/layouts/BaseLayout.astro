@@ -49,8 +49,11 @@ const {
     </head>
 
     <body>
-        <div class="fixed inset-0 z-0 overflow-hidden text-white pointer-events-none">
-            <Jellyfish count={5} class="h-full w-full" />
+        <div
+          transition:persist
+          class="fixed inset-0 z-0 overflow-hidden text-white pointer-events-none"
+        >
+          <Jellyfish count={5} class="h-full w-full" />
         </div>
         <main class="relative">
             <slot />
