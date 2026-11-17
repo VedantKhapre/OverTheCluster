@@ -13,6 +13,13 @@ RUN rm -rf /usr/local/lib/node_modules /usr/local/bin/npm /usr/local/bin/npx \
            /usr/local/bin/corepack /usr/local/bin/yarn* /opt/yarn-*
 
 COPY --from=builder /opt/terminal /opt/terminal
+RUN sed -i \
+    -e "s/#1e1e1e/#0b0b0b/g" \
+    -e "s/'#d4d4d4'/'#ffffff'/" \
+    -e "/foreground:/a cursor: '#3b82f6', selectionBackground: '#3b82f655'," \
+    -e "/foreground:/a black: '#0b0b0b', red: '#f87171', green: '#4ade80', yellow: '#facc15'," \
+    -e "/foreground:/a blue: '#3b82f6', magenta: '#a78bfa', cyan: '#22d3ee', white: '#d4d4d8'," \
+    /opt/terminal/node_modules/@devboxer/terminal-server/bin/server.js
 ENV PATH="/opt/terminal/node_modules/.bin:${PATH}"
 
 RUN --mount=type=bind,source=levels,target=/opt/levels \
